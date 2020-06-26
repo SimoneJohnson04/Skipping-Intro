@@ -15,7 +15,7 @@ public class MakingTaxes {
     String C = "C";
     String D = "D";
     String F = "F";
-    while((inputGrade.equals(Z))==false){
+    while((inputGrade.equals(Z)==false)&&(inputGrade.equals(z)==false)){
       if(inputGrade.equals(A)||inputGrade.equals(B)||inputGrade.equals(C)||inputGrade.equals(D)){
         passingGrades++;
         currentStudents++;
@@ -39,6 +39,8 @@ public class MakingTaxes {
     double percentFail = (double)failingGrades/totalStudents*100;
     System.out.printf("\n%d students total", totalStudents);
     System.out.printf("\n%d students passed: \t%.2f", passingGrades, percentPass);
+    System.out.print("%");
     System.out.printf("\n%d students failed: \t%.2f", failingGrades, percentFail);
+    System.out.print("%");
   }
 }
