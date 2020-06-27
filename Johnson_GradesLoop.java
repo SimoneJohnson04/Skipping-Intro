@@ -76,6 +76,35 @@ public class Johnson_GradesLoop {
         System.out.printf("\n\nProgram finished");
       }
       else if(programNumber==4){
+        System.out.printf("\nPlease enter the number the program will guess:\t");
+        keyboard.nextLine();
+        int guessingNumber = keyboard.nextInt();
+        System.out.printf("\n");
+        String correct = "C";
+        String higher = "H";
+        String lower = "L";
+        int max = 100;
+        int min = 0;
+        int guesses = 0;
+        int guessNumber;
+        String inputString;
+        do{
+          guessNumber = (int)((max+min)/2);
+          System.out.printf("Is the number %d?\t (H)igher, (L)ower, or (C)orrect:\t", guessNumber);
+          if(guessNumber==50){
+            keyboard.nextLine();
+          }
+          inputString = keyboard.nextLine();
+          if (inputString.equals(higher)==true){
+            min = guessNumber;
+          }
+          if(inputString.equals(lower)==true){
+            max = guessNumber;
+          }
+          guesses++;
+        }
+        while(inputString.equals(correct)==false);
+        System.out.printf("\nIt took %d guesses to reach the number", guesses);
         System.out.printf("\n\nProgram finished");
       }
       else{
