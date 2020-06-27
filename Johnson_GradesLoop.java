@@ -24,17 +24,17 @@ public class Johnson_GradesLoop {
           if(inputGrade.equals(A)||inputGrade.equals(B)||inputGrade.equals(C)||inputGrade.equals(D)){
             passingGrades++;
             currentStudents++;
-            System.out.printf("\nEnter grade #%d:\t", currentStudents);
+            System.out.printf("Enter grade #%d:\t", currentStudents);
             inputGrade = keyboard.nextLine();
           }
           else if(inputGrade.equals(F)){
             currentStudents++;
             failingGrades++;
-            System.out.printf("\nEnter grade #%d:\t", currentStudents);
+            System.out.printf("Enter grade #%d:\t", currentStudents);
             inputGrade = keyboard.nextLine();
           }
           else{
-            System.out.printf("\n<%s is not an acceptable grade>\n", inputGrade);
+            System.out.printf("<%s is not an acceptable grade>", inputGrade);
             System.out.printf("\nEnter grade #%d:\t", currentStudents);
             inputGrade = keyboard.nextLine();
           }
@@ -63,6 +63,16 @@ public class Johnson_GradesLoop {
         System.out.printf("\n\nProgram finished");
       }
       else if(programNumber==3){
+        int OrigInt1 = (int)(Math.random()*100)+1;
+        int OrigInt2 = (int)(Math.random()*100)+1;
+        int int1 = OrigInt1;
+        int int2 = OrigInt2;
+        while(int2!=0){
+          int previousInt2 = int2;
+          int2 = int1%int2;
+          int1 = previousInt2;
+        }
+        System.out.printf("\nThe GCD of %d and %d is %d", OrigInt1, OrigInt2, int1);
         System.out.printf("\n\nProgram finished");
       }
       else if(programNumber==4){
