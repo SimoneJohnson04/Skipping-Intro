@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Johnson_OP5MakingChange {
+public class Johnson_OP5MakingChange {
   public static void main(String[] args) {
     Scanner keyboard = new Scanner(System.in);
     System.out.printf("\nEnter the cost of the purchase: ");

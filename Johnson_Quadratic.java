@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Johnson_Quadratic {
+public class Johnson_Quadratic {
   public static void main(String[] args) {
     Scanner keyboard = new Scanner(System.in);
     System.out.println("Enter the first coefficient A: ");
