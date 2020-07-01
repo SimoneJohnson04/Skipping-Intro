@@ -100,9 +100,34 @@ public class Johnson_NestedLoop{
       }
     }
     if(programNumber == 7){
-      System.out.printf("Enter how many teeth on top: \t \n Enter height of teeth: \t");
+      System.out.printf("Enter how many teeth on top: \t");
       int teeth = keyboard.nextInt();
+      System.out.printf("Enter height of teeth: \t");
       int height = keyboard.nextInt();
+      int x=0;
+      for(int z=height; z>=0; z--){
+        x++;
+        for(int a=teeth; a>0; a--){
+          int hasRun=0; //I think I can simplify this part by putting the while conditions into the for loops
+          while((z!=height)&&hasRun==0&&a!=teeth){
+              for(int y=1; y<=(2*x-1); y++){
+                System.out.print(" ");
+              }
+              hasRun = 1;
+            }
+          while((z==height||a==teeth)&&hasRun==0){
+            for(int y=1; y<=(x); y++){
+              System.out.print(" ");
+            }
+            hasRun = 1;
+          }
+          for(int w=1; w<=(2*z-1);w++){
+            System.out.print("*");
+          }
+        
+        }
+        System.out.println();
+      }
     }
   }
 }
