@@ -108,23 +108,32 @@ public class Johnson_NestedLoop{
       for(int z=height; z>=0; z--){
         x++;
         for(int a=teeth; a>0; a--){
-          int hasRun=0; //I think I can simplify this part by putting the while conditions into the for loops
-          while((z!=height)&&hasRun==0&&a!=teeth){
-              for(int y=1; y<=(2*x-1); y++){
-                System.out.print(" ");
-              }
-              hasRun = 1;
-            }
-          while((z==height||a==teeth)&&hasRun==0){
-            for(int y=1; y<=(x); y++){
-              System.out.print(" ");
-            }
-            hasRun = 1;
+          for(int y=1; y<=(2*x-1) && z!=height && a!=teeth; y++){
+            System.out.print(" ");
+          }
+          for(int y=1; y<=(x) && (z==height||a==teeth); y++){
+            System.out.print(" ");
           }
           for(int w=1; w<=(2*z-1);w++){
             System.out.print("*");
           }
-        
+        }
+        System.out.printf("\n");
+      }
+      for(int d=1; d<=height; d++){
+        for(int a=teeth-1; a>0; a--){
+          for(int z=0; z==0 && a==teeth-1; z++){
+            System.out.print(" ");
+          }
+          for(int e=1; e<=(height*2-d) && (d==1 || a==teeth-1); e++){
+            System.out.print(" ");
+          }
+          for(int y=1; y<=(-2*d+(2*teeth+1)) && d!=1 && a!=teeth-1;y++){
+            System.out.print(" ");
+          }
+          for(int f=1; f<=(2*d-1);f++){
+            System.out.print("*");
+          }
         }
         System.out.println();
       }
