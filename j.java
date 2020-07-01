@@ -104,33 +104,35 @@ public class Johnson_NestedLoop{
       int teeth = keyboard.nextInt();
       System.out.printf("Enter height of teeth: \t");
       int height = keyboard.nextInt();
-      int x=0;
       for(int z=height; z>=0; z--){
-        x++;
         for(int a=teeth; a>0; a--){
-          for(int y=1; y<=(2*x-1) && z!=height && a!=teeth; y++){
-            System.out.print(" ");
-          }
-          for(int y=1; y<=(x) && (z==height||a==teeth); y++){
+          for(int y=1; (y<=(2*(teeth-z)-1) && z!=height && a!=teeth)||(y<=(teeth-z) && (z==height||a==teeth)); y++){
             System.out.print(" ");
           }
           for(int w=1; w<=(2*z-1);w++){
             System.out.print("*");
           }
         }
-        System.out.printf("\n");
+        System.out.println();
       }
       for(int d=1; d<=height; d++){
         for(int a=teeth-1; a>0; a--){
-          for(int z=0; z==0 && a==teeth-1; z++){
+          
+          for(int z=1; (z==1 && a==teeth-1)||(z<=(height*2-d) && (d==1 || a==teeth-1))||(z<=(-2*d+(2*height+1)) && d!=1 && a!=teeth-1); z++){
             System.out.print(" ");
           }
-          for(int e=1; e<=(height*2-d) && (d==1 || a==teeth-1); e++){
+          
+          /*
+          for(int z=1; (z==1 && a==teeth-1); z++){
             System.out.print(" ");
           }
-          for(int y=1; y<=(-2*d+(2*teeth+1)) && d!=1 && a!=teeth-1;y++){
+          for(int z=1; z<=(height*2-d) && (d==1 || a==teeth-1); z++){
             System.out.print(" ");
           }
+          for(int z=1; z<=(-2*d+(2*height+1)) && d!=1 && a!=teeth-1;z++){
+            System.out.print(" ");
+          }
+          */
           for(int f=1; f<=(2*d-1);f++){
             System.out.print("*");
           }
