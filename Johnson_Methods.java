@@ -21,6 +21,12 @@ public class Johnson_Methods {
       int num = keyboard.nextInt();
       System.out.println("The statement 'The number is prime' is: " + isPrime(num));
     }
+    if(programNumber==4){
+      System.out.printf("\nEnter number:\n");
+      int number = keyboard.nextInt();
+      double answer = sqrt(number);
+      System.out.printf("The square root is: %.4f", answer);
+    }
   }
   public static int rectPerimeter(int length, int width){
     int Peri = length*2+width*2;
@@ -49,5 +55,27 @@ public class Johnson_Methods {
       }
     }
     return true; 
+  }
+  public static double sqrt(int number){
+    double answer = 0;
+    for(double squaredNum = 1; squaredNum*squaredNum<=number; squaredNum++){
+      answer = squaredNum;
+    }
+    for(double squaredNum = answer; squaredNum*squaredNum<=number; squaredNum = squaredNum+.1){
+      answer = squaredNum;
+    }
+    for(double squaredNum = answer; squaredNum*squaredNum<=number; squaredNum = squaredNum+.01){
+      answer = squaredNum;
+    }
+    for(double squaredNum = answer; squaredNum*squaredNum<=number; squaredNum = squaredNum+.001){
+      answer = squaredNum;
+    }
+    for(double squaredNum = answer; squaredNum*squaredNum<=number; squaredNum = squaredNum+.0001){
+      answer = squaredNum;
+    }
+    if((answer+.00005)*(answer+.00005)<=number){
+      answer = answer + .0001;
+    }
+    return answer;
   }
 }
