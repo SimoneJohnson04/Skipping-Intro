@@ -3,121 +3,125 @@ import java.util.Scanner;
 public class Johnson_Methods {
   public static void main(String[] args) {
     Scanner keyboard = new Scanner(System.in);
-    System.out.printf("Enter program number: ");
+    System.out.printf("\nPrograms available: 1.Perimeter 2.Powers 3.Prime 4.SqRt 5.Digit 6.Nim\nEnter program number(0 to exit): ");
     int programNumber = keyboard.nextInt();
-    if(programNumber==1){
-      System.out.printf("\nEnter length and width:\n");
-      int length = keyboard.nextInt();
-      int width = keyboard.nextInt();
-      System.out.println("The perimter is: " + rectPerimeter(length,width));
-    }
-    if (programNumber==2){
-      System.out.printf("\nEnter base and power:\n");
-      int base = keyboard.nextInt();
-      int power = keyboard.nextInt();
-      System.out.println("The answer is: " + toThePower(base,power));
-    }
-    if(programNumber==3){
-      System.out.printf("\nEnter number:\n");
-      int num = keyboard.nextInt();
-      System.out.println("The statement 'The number is prime' is: " + isPrime(num));
-    }
-    if(programNumber==4){
-      System.out.printf("\nEnter number:\n");
-      int number = keyboard.nextInt();
-      double answer = sqrt(number);
-      System.out.printf("The square root is: %.4f", answer);
-    }
-    if(programNumber==5){
-      System.out.printf("\nEnter number between 0 and 2,147,483,647:\n");
-      int number = keyboard.nextInt();
-      Integer[] numberCount = digits(number);
-      System.out.printf("There are %d zeros\nThere are %d ones\nThere are %d twos\nThere are %d threes\nThere are %d fours\nThere are %d fives\nThere are %d sixes\nThere are %d sevens\nThere are %d eights\nThere are %d nines\n", numberCount[0], numberCount[1], numberCount[2], numberCount[3], numberCount[4], numberCount[5], numberCount[6], numberCount[7], numberCount[8], numberCount[9]);
-    }
-    if(programNumber==6){
-      int initSize = (int)(Math.random()*90+10);
-      double turn = Math.random();
-      double sOrS = Math.random();
-      boolean smart;
-      boolean gameOver = false;
-      int currentSize = initSize;
-      System.out.printf("\nPile has %d stones, ", initSize);
-      if(sOrS>=.5){
-        smart = true;
-        System.out.printf("computer is smart,");
+    while(programNumber!=0){ 
+      if(programNumber==1){
+        System.out.printf("\nEnter length and width:\n");
+        int length = keyboard.nextInt();
+        int width = keyboard.nextInt();
+        System.out.println("The perimter is: " + rectPerimeter(length,width));
       }
-      else{
-        smart = false;
-        System.out.printf("computer is stupid,");
+      if (programNumber==2){
+        System.out.printf("\nEnter base and power:\n");
+        int base = keyboard.nextInt();
+        int power = keyboard.nextInt();
+        System.out.println("The answer is: " + toThePower(base,power));
       }
-      if(turn>=.5){
-        System.out.printf(" and computer goes first\n");
-        while(!gameOver){
-          int newSize = computerTurn(currentSize, smart);
-          if(newSize == 0){
-            gameOver = true;
-            System.out.printf("\nComputer lost :(\n");
-            break;
+      if(programNumber==3){
+        System.out.printf("\nEnter number:\n");
+        int num = keyboard.nextInt();
+        System.out.println("The statement 'The number is prime' is: " + isPrime(num));
+      }
+      if(programNumber==4){
+        System.out.printf("\nEnter number:\n");
+        int number = keyboard.nextInt();
+        double answer = sqrt(number);
+        System.out.printf("The square root is: %.4f", answer);
+      }
+      if(programNumber==5){
+        System.out.printf("\nEnter number between 0 and 2,147,483,647:\n");
+        int number = keyboard.nextInt();
+        Integer[] numberCount = digits(number);
+        System.out.printf("There are %d zeros\nThere are %d ones\nThere are %d twos\nThere are %d threes\nThere are %d fours\nThere are %d fives\nThere are %d sixes\nThere are %d sevens\nThere are %d eights\nThere are %d nines\n", numberCount[0], numberCount[1], numberCount[2], numberCount[3], numberCount[4], numberCount[5], numberCount[6], numberCount[7], numberCount[8], numberCount[9]);
+      }
+      if(programNumber==6){
+        int initSize = (int)(Math.random()*90+10);
+        double turn = Math.random();
+        double sOrS = Math.random();
+        boolean smart;
+        boolean gameOver = false;
+        int currentSize = initSize;
+        System.out.printf("\nPile has %d stones, ", initSize);
+        if(sOrS>=.5){
+          smart = true;
+          System.out.printf("computer is smart,");
+        }
+        else{
+          smart = false;
+          System.out.printf("computer is stupid,");
+        }
+        if(turn>=.5){
+          System.out.printf(" and computer goes first\n");
+          while(!gameOver){
+            int newSize = computerTurn(currentSize, smart);
+            if(newSize == 0){
+              gameOver = true;
+              System.out.printf("\nComputer lost :(\n");
+              break;
+            }
+            currentSize = newSize;
+            System.out.printf("\nEnter how many of %d stones you want to take: ", currentSize);
+            int amountTaken = keyboard.nextInt();
+            if((amountTaken/currentSize)>.5){
+              System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
+              amountTaken = keyboard.nextInt();
+            }
+            if(amountTaken>(currentSize-amountTaken)&&currentSize!=1){
+              System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
+              amountTaken = keyboard.nextInt();
+            }
+            if(amountTaken==0){
+              System.out.printf("\nYou can't take 0, silly.\nEnter an amount greater than 1 and no more than half: ");
+              amountTaken = keyboard.nextInt();
+            }
+            newSize = currentSize-amountTaken;
+            System.out.printf("\nYou took %d stones, there are %d stones left\n", amountTaken, newSize);
+            if(newSize == 0){
+              gameOver = true;
+              System.out.printf("\nComputer won! :) Human lost!!!\n");
+              break;
+            }
+            currentSize = newSize;
           }
-          currentSize = newSize;
-          System.out.printf("\nEnter how many of %d stones you want to take: ", currentSize);
-          int amountTaken = keyboard.nextInt();
-          if((amountTaken/currentSize)>.5){
-            System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
-            amountTaken = keyboard.nextInt();
+        }
+        else{
+          System.out.printf(" and player goes first\n");
+          while(!gameOver){
+            System.out.printf("\nEnter how many of %d stones you want to take: ", currentSize);
+            int amountTaken = keyboard.nextInt();
+            if((amountTaken/currentSize)>.5){
+              System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
+              amountTaken = keyboard.nextInt();
+            }
+            if(amountTaken>(currentSize-amountTaken)&&currentSize!=1){
+              System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
+              amountTaken = keyboard.nextInt();
+            }
+            if(amountTaken==0){
+              System.out.printf("\nYou can't take 0, silly.\nEnter an amount greater than 1 and no more than half: ");
+              amountTaken = keyboard.nextInt();
+            }
+            int newSize = currentSize-amountTaken;
+            System.out.printf("\nYou took %d stones, there are %d stones left\n", amountTaken, newSize);
+            if(newSize == 0){
+              gameOver = true;
+              System.out.printf("\nComputer won! :) Human lost!!!\n");
+              break;
+            }
+            currentSize = newSize;
+            newSize = computerTurn(currentSize, smart);
+            if(newSize == 0){
+              gameOver = true;
+              System.out.printf("\nComputer lost :(\n");
+              break;
+            }
+            currentSize = newSize;
           }
-          if(amountTaken>(currentSize-amountTaken)){
-            System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
-            amountTaken = keyboard.nextInt();
-          }
-          if(amountTaken==0){
-            System.out.printf("\nYou can't take 0, silly.\nEnter an amount greater than 1 and no more than half: ");
-            amountTaken = keyboard.nextInt();
-          }
-          newSize = currentSize-amountTaken;
-          System.out.printf("\nYou took %d stones, there are %d stones left\n", amountTaken, newSize);
-          if(newSize == 0){
-            gameOver = true;
-            System.out.printf("\nComputer won! :) Human lost!!!\n");
-            break;
-          }
-          currentSize = newSize;
         }
       }
-      else{
-        System.out.printf(" and player goes first\n");
-        while(!gameOver){
-          System.out.printf("\nEnter how many of %d stones you want to take: ", currentSize);
-          int amountTaken = keyboard.nextInt();
-          if((amountTaken/currentSize)>.5){
-            System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
-            amountTaken = keyboard.nextInt();
-          }
-          if(amountTaken>(currentSize-amountTaken)){
-            System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
-            amountTaken = keyboard.nextInt();
-          }
-          if(amountTaken==0){
-            System.out.printf("\nYou can't take 0, silly.\nEnter an amount greater than 1 and no more than half: ");
-            amountTaken = keyboard.nextInt();
-          }
-          int newSize = currentSize-amountTaken;
-          System.out.printf("\nYou took %d stones, there are %d stones left\n", amountTaken, newSize);
-          if(newSize == 0){
-            gameOver = true;
-            System.out.printf("\nComputer won! :) Human lost!!!\n");
-            break;
-          }
-          currentSize = newSize;
-          newSize = computerTurn(currentSize, smart);
-          if(newSize == 0){
-            gameOver = true;
-            System.out.printf("\nComputer lost :(\n");
-            break;
-          }
-          currentSize = newSize;
-        }
-      }
+      System.out.printf("\nProgram finished\nPrograms available: 1.Perimeter 2.Powers 3.Prime 4.SqRt 5.Digit 6.Nim\nEnter program number(0 to exit): ");
+      programNumber = keyboard.nextInt();
     }
   }
 
