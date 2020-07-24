@@ -62,7 +62,11 @@ public class Johnson_Methods {
           currentSize = newSize;
           System.out.printf("\nEnter how many of %d stones you want to take: ", currentSize);
           int amountTaken = keyboard.nextInt();
-          if((amountTaken/currentSize)<=.5){
+          if((amountTaken/currentSize)>.5){
+            System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
+            amountTaken = keyboard.nextInt();
+          }
+          if(amountTaken>(currentSize-amountTaken)){
             System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
             amountTaken = keyboard.nextInt();
           }
@@ -85,7 +89,11 @@ public class Johnson_Methods {
         while(!gameOver){
           System.out.printf("\nEnter how many of %d stones you want to take: ", currentSize);
           int amountTaken = keyboard.nextInt();
-          if((amountTaken/currentSize)<=.5){
+          if((amountTaken/currentSize)>.5){
+            System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
+            amountTaken = keyboard.nextInt();
+          }
+          if(amountTaken>(currentSize-amountTaken)){
             System.out.printf("\nThat amount is more than half. \nEnter an amount greater than 1 and no more than half: ");
             amountTaken = keyboard.nextInt();
           }
