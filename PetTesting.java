@@ -124,7 +124,7 @@ public class Pet{
   //method that displays all of the characteristics to the screen
   public void displayStats(){
     System.out.println("\nThe bunny's stats are as follows:\n");
-    System.out.printf("Name:\t\t\t%s\nAge: \t\t\t %d years old\nWeight: \t\t\t %.1f pounds\nEnergy: \t\t%.1f\nHappiness:  \t\t%d\nIntelligence: \t%d\n", name, age, weight, energy, happiness, intelligence);
+    System.out.printf("Name:\t\t\t%s\nAge:\t\t\t %d years old\nWeight:\t\t\t %.1f pounds\nEnergy: \t\t%.1f\nHappiness:  \t%d\nIntelligence: \t%d\n", name, age, weight, energy, happiness, intelligence);
   }
 
   //allows the bunny to eat and makes the bunny gain weight
